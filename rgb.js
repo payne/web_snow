@@ -21,7 +21,7 @@ if (!embedimSnow) {
         }
         embedimSnow = document.createElement('div');
         embedimSnow.id = `embedim--snow--${color}`;
-        embedimSnow.innerHTML = '<style>#embedim--snow{position:fixed;left:0;top:0;bottom:0;width:100vw;height:100vh;overflow:hidden;z-index:9999999;pointer-events:none}' + embCSS + '</style>' + embHTML;
+        embedimSnow.innerHTML = `<style>#embedim--snow--${color}{position:fixed;left:0;top:0;bottom:0;width:100vw;height:100vh;overflow:hidden;z-index:9999999;pointer-events:none}` + embCSS + '</style>' + embHTML;
         document.body.appendChild(embedimSnow)
     }
 }
