@@ -8,7 +8,9 @@ if (!embedimSnow) {
     const rgb = ['red','green','blue'];
     for (c=0; c < 3; c++) {
         var embHTML = '';
-        var embCSS = `.embedim-snow{position: absolute;width: 10px;height: 10px;background: ${rgb[c]};border-radius: 50%;margin-top:-10px}`;
+        let color = rgb[c];
+        console.log(`Now making ${color} snow`);
+        var embCSS = `.embedim-snow{position: absolute;width: 10px;height: 10px;background: ${color};border-radius: 50%;margin-top:-10px}`;
         for (i = 1; i < 100; i++) {
             embHTML += '<i class="embedim-snow"></i>';
             var rndX = (embRand(0, 1000000) * 0.0001),
@@ -18,7 +20,7 @@ if (!embedimSnow) {
             embCSS += '.embedim-snow:nth-child(' + i + '){' + 'opacity:' + (embRand(1, 10000) * 0.0001).toFixed(2) + ';' + 'transform:translate(' + rndX.toFixed(2) + 'vw,-10px) scale(' + rndS + ');' + 'animation:fall-' + i + ' ' + embRand(10, 30) + 's -' + embRand(0, 30) + 's linear infinite' + '}' + '@keyframes fall-' + i + '{' + rndT + '%{' + 'transform:translate(' + (rndX + rndO).toFixed(2) + 'vw,' + rndT + 'vh) scale(' + rndS + ')' + '}' + 'to{' + 'transform:translate(' + (rndX + (rndO / 2)).toFixed(2) + 'vw, 105vh) scale(' + rndS + ')' + '}' + '}'
         }
         embedimSnow = document.createElement('div');
-        embedimSnow.id = 'embedim--snow';
+        embedimSnow.id = `embedim--snow--${color}`;
         embedimSnow.innerHTML = '<style>#embedim--snow{position:fixed;left:0;top:0;bottom:0;width:100vw;height:100vh;overflow:hidden;z-index:9999999;pointer-events:none}' + embCSS + '</style>' + embHTML;
         document.body.appendChild(embedimSnow)
     }
