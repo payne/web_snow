@@ -10,7 +10,7 @@ if (!embedimSnow) {
         var embHTML = '';
         let color = rgb[c];
         console.log(`Now making ${color} snow`);
-        var embCSS = `.embedim-snow{position: absolute;width: 10px;height: 10px;background: ${color};border-radius: 50%;margin-top:-10px}`;
+        var embCSS = `.embedim-snow--${color}{position: absolute;width: 10px;height: 10px;background: ${color};border-radius: 50%;margin-top:-10px}`;
         for (i = 1; i < 100; i++) {
             embHTML += '<i class="embedim-snow"></i>';
             var rndX = (embRand(0, 1000000) * 0.0001),
